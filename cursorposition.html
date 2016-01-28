@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>event.pageX demo</title>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <style>
+  body {
+    background-color: #eef;
+    overflow: hidden;
+  }
+  #image{
+  	top: -10px;
+  	position: absolute;
+  	min-height: 50%;
+  	min-height: 50%;
+  	z-index: -1;
+  }
+  #text-input{
+  	position: absolute;
+  	font-family: 'Oswald','sans-serif';
+  	z-index: 11;
+  	font-size: 50px;
+  	color: white;
+  	right: -350px;
+  	top: 250px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div id="log"></div>
+<div id="clear"></div>
+<img src="lion.jpg" id="image"/>
+<div id="text-input">Winter is coming</div>
+ 
+<script>
+var x = $("#inner").offset();
+$(document).on( "mousemove", function( event ) {
+	var xchange = event.pageX - 100;
+	var ychange = event.pageY - 100;
+	$("#image").css("left",-xchange/30 -20);
+	$("#image").css("top",-ychange/30 - 50);
+});
+</script>
+ 
+</body>
+</html>
